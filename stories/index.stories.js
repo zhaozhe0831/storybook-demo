@@ -5,14 +5,14 @@ import withInfo from 'storybook-addon-vue-info';
 // import DemoButton from '../stories/views/common/button.stories.vue';
 import DemoButton from '../stories/views/common/button.stories.js';
 
-storiesOf('Button', module)
+storiesOf('first', module)
   .addDecorator(withKnobs)
   .add('button', () => DemoButton)
   .add('with render', () => ({
     render: (h) => h(DemoButton)
   }))
 
-storiesOf('Button', module)
+storiesOf('second', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
   .add('button', () => DemoButton)
