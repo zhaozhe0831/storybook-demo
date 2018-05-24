@@ -1,6 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 
-module.exports = (storybookBaseConfig, configType, defaultConfig) => {
-  return defaultConfig;
+module.exports = (baseConfig, env, defaultConfig) => {
+    defaultConfig.resolve.alias['@']=path.resolve(__dirname, '../src/');
+
+    return defaultConfig;
 };

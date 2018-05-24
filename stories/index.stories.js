@@ -1,10 +1,21 @@
 import { storiesOf } from '@storybook/vue';
+import { withKnobs } from '@storybook/addon-knobs';
+import withInfo from 'storybook-addon-vue-info';
+
+// import DemoButton from '../stories/views/common/button.stories.vue';
+import DemoButton from '../stories/views/common/button.stories.js';
 
 storiesOf('Button', module)
-  // Works if Vue.component is called in the config.js in .storybook
-  .add('rounded', () => ({
-    template: '<base-button :rounded="true">A Button with rounded edges</base-button>',
+  .addDecorator(withKnobs)
+  .add('button', () => DemoButton)
+  .add('with render', () => ({
+    render: (h) => h(DemoButton)
   }))
-  .add('square', () => ({
-    template: '<base-button :rounded="false">A Button with square edges</base-button>',
-  }));
+
+storiesOf('Button', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add('button', () => DemoButton)
+  .add('with render', () => ({
+    render: (h) => h(DemoButton)
+  }))
